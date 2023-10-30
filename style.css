@@ -1,0 +1,81 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+ul li {
+	list-style: none;
+}
+
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background: #7a7a7a;
+}
+
+.menu {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item {
+    position: absolute;
+    left: 0;
+    transition: 0.5s;
+    transform-origin: 150px;
+    transform: rotate(0deg) translateX(130px);
+}
+
+.menu-item-link{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	border: 2px solid var(--clr);
+	border-radius: 50%;
+	color: var(--clr);
+	font-size: 20px;
+	transform: rotate(calc( -360deg / 8 * var(--i) ));
+	text-decoration: none;
+    transition: 0.5s;
+}
+
+.menu-item-link:hover{
+    background: var(--clr);
+    color: #333;
+    box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr),0 0 50px var(--clr); 
+    transition: 0.5s;
+}
+
+.toggle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #7a7a7a;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    transition: transform 1.5s;
+}
+
+.menu.active .toggle {
+    transform: rotate(360deg);
+}
+
+.menu.active .menu-item {
+    transform: rotate(calc( 360deg / 8 * var(--i) )) translateX(0px);
+}
